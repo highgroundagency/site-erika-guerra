@@ -67,7 +67,7 @@ export function Identificacao() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Você já tentou de tudo —{' '}
+          Você já tentou de tudo —<br />
           <em style={{ color: '#175442', fontStyle: 'italic' }}>e o corpo travou.</em>
         </motion.h2>
 

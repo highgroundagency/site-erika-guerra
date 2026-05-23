@@ -122,11 +122,11 @@ export function ProvaSocial() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              {/* SUBSTITUIR: dra-erika-clinica.jpg — recortar para mostrar rosto/ambiente sem destaque ao objeto na mão */}
               <img
                 src="/dra-erika-clinica.jpg"
                 alt="Dra. Érika Guerra em seu consultório no Medical Center do Shopping Recife"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 18%', transform: 'scale(1.1)', transformOrigin: '50% 15%' }}
                 loading="lazy"
                 onError={(e) => {
                   const t = e.target as HTMLImageElement;
@@ -178,16 +178,37 @@ export function ProvaSocial() {
               ))}
             </div>
 
-            {/* Logos placeholders */}
-            <div
-              className="flex items-center gap-4 py-4 px-6 rounded-2xl"
-              style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            {/* Cobertura na imprensa — Folha de Pernambuco */}
+            <a
+              href="https://www.folha.pe.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-5 p-5 rounded-2xl group transition-all hover:scale-[1.02]"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(180,153,100,0.25)',
+              }}
             >
-              <p className="font-body text-xs" style={{ color: 'rgba(220,231,222,0.5)' }}>
-                {/* SUBSTITUIR: logos de veículos e eventos */}
-                Cobertura na imprensa · Logos em /public/logos/
-              </p>
-            </div>
+              {/* Logotipo tipográfico da Folha */}
+              <div
+                className="flex-shrink-0 flex items-center justify-center px-4 py-2 rounded-xl"
+                style={{ backgroundColor: '#C8102E', minWidth: 80 }}
+              >
+                <span className="font-display font-bold text-white text-sm leading-tight text-center">
+                  Folha<br/>PE
+                </span>
+              </div>
+              <div>
+                <p className="font-body font-bold text-sm" style={{ color: '#D4B883' }}>
+                  Folha de Pernambuco
+                </p>
+                <p className="font-body text-xs leading-snug mt-0.5" style={{ color: '#DCE7DE', opacity: 0.8 }}>
+                  Colunista convidada na coluna <strong style={{ color: '#D4B883' }}>"Sucesso"</strong> —
+                  desmistificando mitos alimentares e alertando sobre automedicação e dietas restritivas.
+                </p>
+              </div>
+              <span className="ml-auto text-xs flex-shrink-0" style={{ color: 'rgba(212,184,131,0.5)' }}>→</span>
+            </a>
           </div>
 
           {/* ── Depoimentos ── */}

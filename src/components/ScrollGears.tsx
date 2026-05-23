@@ -1,6 +1,7 @@
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-interface GearProps {
+interface SingleGearProps {
   cx: number;
   cy: number;
   r: number;
@@ -8,56 +9,81 @@ interface GearProps {
   toothH: number;
   color?: string;
   direction?: 1 | -1;
-  rotationMultiplier?: number;
+  scrollProgress: ReturnType<typeof useTransform<number, number>>;
 }
 
-function Gear({ cx, cy, r, teeth, toothH, color = '#B49964', direction = 1, rotationMultiplier = 1 }: GearProps) {
-  const { scrollYProgress } = useScroll();
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, direction * 360 * rotationMultiplier]);
+function buildGearPath(cx: number, cy: number, r: number, teeth: number, toothH: number): string {
+  const inner = r;
+  const outer = r + toothH;
+  const toothWidth = (2 * Math.PI) / teeth;
+  let d = '';
 
-  const points: string[] = [];
   for (let i = 0; i < teeth; i++) {
-    const angle = (i / teeth) * 2 * Math.PI;
-    const angleNext = ((i + 0.5) / teeth) * 2 * Math.PI;
-    const angleEnd = ((i + 1) / teeth) * 2 * Math.PI;
+    const a0 = (i / teeth) * 2 * Math.PI - Math.PI / 2;
+    const a1 = a0 + toothWidth * 0.3;
+    const a3 = a0 + toothWidth * 0.7;
+    const a4 = a0 + toothWidth;
 
-    const ox = cx + r * Math.cos(angle);
-    const oy = cy + r * Math.sin(angle);
-    const tx = cx + (r + toothH) * Math.cos(angleNext - 0.15);
-    const ty = cy + (r + toothH) * Math.sin(angleNext - 0.15);
-    const tx2 = cx + (r + toothH) * Math.cos(angleNext + 0.15);
-    const ty2 = cy + (r + toothH) * Math.sin(angleNext + 0.15);
-    const ex = cx + r * Math.cos(angleEnd);
-    const ey = cy + r * Math.sin(angleEnd);
+    const p = (angle: number, rr: number) => ({
+      x: cx + rr * Math.cos(angle),
+      y: cy + rr * Math.sin(angle),
+    });
 
-    points.push(`${ox},${oy} ${tx},${ty} ${tx2},${ty2} ${ex},${ey}`);
+    const pts = [p(a0, inner), p(a1, outer), p(a3, outer), p(a4, inner)];
+
+    if (i === 0) d += `M ${pts[0].x} ${pts[0].y}`;
+    else d += ` L ${pts[0].x} ${pts[0].y}`;
+
+    d += ` L ${pts[1].x} ${pts[1].y} L ${pts[2].x} ${pts[2].y} L ${pts[3].x} ${pts[3].y}`;
+
+    // Arc along inner radius to next tooth
+    const nextA = a4;
+    const nextP = p(nextA, inner);
+    d += ` A ${inner} ${inner} 0 0 1 ${nextP.x} ${nextP.y}`;
   }
+  return d + ' Z';
+}
 
-  const gearPath = `M ${points.join(' L ')} Z`;
+function SingleGear({ cx, cy, r, teeth, toothH, color = '#B49964', direction = 1, scrollProgress }: SingleGearProps) {
+  const rotate = useTransform(scrollProgress, (v) => v * direction * 360);
+  const gearPath = buildGearPath(cx, cy, r, teeth, toothH);
 
   return (
-    <motion.g style={{ rotate, originX: cx, originY: cy }}>
-      <motion.path
+    <motion.g
+      style={{ rotate, originX: `${cx}px`, originY: `${cy}px` }}
+    >
+      <path
         d={gearPath}
         fill="none"
         stroke={color}
-        strokeWidth="2"
-        opacity={0.6}
-        style={{ transformOrigin: `${cx}px ${cy}px`, rotate }}
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        opacity={0.7}
       />
-      <circle cx={cx} cy={cy} r={r * 0.35} fill="none" stroke={color} strokeWidth="2" opacity={0.6} />
-      <circle cx={cx} cy={cy} r={4} fill={color} opacity={0.6} />
+      <circle cx={cx} cy={cy} r={r * 0.28} fill="none" stroke={color} strokeWidth="2" opacity={0.7} />
+      <circle cx={cx} cy={cy} r={5} fill={color} opacity={0.7} />
     </motion.g>
   );
 }
 
 export function ScrollGears({ className = '' }: { className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
   return (
-    <div className={`flex justify-center items-center py-8 ${className}`}>
-      <svg viewBox="0 0 280 160" width="280" height="160" className="overflow-visible">
-        <Gear cx={80} cy={80} r={45} teeth={12} toothH={10} direction={1} rotationMultiplier={1.5} />
-        <Gear cx={180} cy={80} r={35} teeth={10} toothH={8} color="#D4B883" direction={-1} rotationMultiplier={2} />
-        <Gear cx={245} cy={55} r={22} teeth={8} toothH={6} direction={1} rotationMultiplier={2.5} />
+    <div ref={ref} className={`flex justify-center items-center py-4 ${className}`}>
+      <svg
+        viewBox="0 0 300 160"
+        width="300"
+        height="160"
+        style={{ overflow: 'visible' }}
+      >
+        <SingleGear cx={75}  cy={80} r={48} teeth={14} toothH={11} color="#B49964" direction={1}  scrollProgress={scrollYProgress} />
+        <SingleGear cx={185} cy={80} r={36} teeth={11} toothH={9}  color="#D4B883" direction={-1} scrollProgress={scrollYProgress} />
+        <SingleGear cx={255} cy={52} r={22} teeth={8}  toothH={7}  color="#B49964" direction={1}  scrollProgress={scrollYProgress} />
       </svg>
     </div>
   );
