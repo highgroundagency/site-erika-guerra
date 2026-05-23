@@ -179,7 +179,7 @@ export function Hero() {
               <div
                 className="relative rounded-3xl overflow-hidden"
                 style={{
-                  width: 'min(340px, 85vw)',
+                  width: 'min(400px, 88vw)',
                   aspectRatio: '3/4',
                   border: '2px solid rgba(180,153,100,0.4)',
                   boxShadow: '0 24px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(180,153,100,0.15) inset',
@@ -188,7 +188,8 @@ export function Hero() {
                 <img
                   src="/dra-erika-hero.jpg"
                   alt="Dra. Érika Guerra, especialista em Nutrologia, Medicina Preventiva e Medicina do Sono, sorrindo em ambiente elegante"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: '50% 15%', transform: 'scale(1.35)', transformOrigin: '50% 20%' }}
                   loading="eager"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

@@ -92,7 +92,7 @@ export function Metodo() {
             >
               "
             </span>
-            <p className="font-display text-xl md:text-2xl italic leading-relaxed" style={{ color: '#F6EADC' }}>
+            <p className="font-display text-xl md:text-2xl leading-relaxed" style={{ color: '#F6EADC' }}>
               Não dá para viajar de Recife a São Paulo se você, na verdade, está em Salvador.
               O ponto de partida precisa ser mapeado com exatidão para que o caminho faça sentido.
             </p>

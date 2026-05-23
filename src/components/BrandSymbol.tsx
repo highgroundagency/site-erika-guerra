@@ -8,10 +8,9 @@ interface BrandSymbolProps {
 }
 
 /**
- * Símbolo oficial da Dra. Érika Guerra em SVG inline.
- * Figura estilizada de pessoa com braços abertos saindo de uma forma
- * circular tipo árvore-da-vida, traços finos.
- * Recriado a partir do logo oficial para renderização cristalina em qualquer tamanho.
+ * Símbolo oficial da Dra. Érika Guerra recriado em SVG inline.
+ * Figura estilizada: pessoa com braços abertos, copa de árvore ramificada
+ * acima e semicírculo completo na base. Traços finos dourados.
  */
 export function BrandSymbol({
   color = '#B49964',
@@ -19,82 +18,75 @@ export function BrandSymbol({
   animate = true,
   className = '',
 }: BrandSymbolProps) {
-  // Use CSS animation for draw-on effect instead of Framer Motion variants to avoid type issues
-  const pathStyle = animate
-    ? {
-        strokeDasharray: 2000,
-        strokeDashoffset: 0,
-        animation: 'draw 2s ease-in-out forwards',
-      }
-    : {};
-
-  const circleStyle = animate
-    ? {
-        strokeDasharray: 200,
-        strokeDashoffset: 0,
-        animation: 'draw 2s ease-in-out forwards',
-      }
-    : {};
+  const strokeW = size > 60 ? 5.5 : 6.5;
 
   return (
     <motion.svg
-      viewBox="0 0 200 200"
+      viewBox="0 0 200 210"
       width={size}
       height={size}
       fill="none"
       stroke={color}
-      strokeWidth="6"
+      strokeWidth={strokeW}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
-      initial={animate ? { opacity: 0, scale: 0.8 } : false}
+      initial={animate ? { opacity: 0, scale: 0.7 } : false}
       animate={animate ? { opacity: 1, scale: 1 } : false}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
       aria-label="Símbolo Dra. Érika Guerra — árvore da vida"
     >
-      {/* ── Semicírculo base ── */}
-      <path d="M 30 145 A 72 72 0 0 1 170 145" style={pathStyle} />
+      {/* ── Semicírculo base completo ── */}
+      <path d="M 18 148 A 82 82 0 0 1 182 148" />
 
-      {/* ── Raízes / pernas ── */}
-      <path d="M 100 145 L 100 110" style={pathStyle} />
-      <path d="M 100 130 L 72 148" style={pathStyle} />
-      <path d="M 100 130 L 128 148" style={pathStyle} />
+      {/* ── Raízes / pernas descendo ao semicírculo ── */}
+      <path d="M 100 148 L 100 112" />
+      {/* Raiz esquerda */}
+      <path d="M 100 135 C 85 138 60 145 40 148" />
+      {/* Raiz direita */}
+      <path d="M 100 135 C 115 138 140 145 160 148" />
 
-      {/* ── Braços ── */}
-      <path d="M 100 100 L 60 115" style={pathStyle} />
-      <path d="M 100 100 L 140 115" style={pathStyle} />
-      <path d="M 60 115 L 38 108" style={pathStyle} />
-      <path d="M 140 115 L 162 108" style={pathStyle} />
+      {/* ── Braços horizontais largos ── */}
+      <path d="M 100 105 L 30 112" />
+      <path d="M 100 105 L 170 112" />
+      {/* Cotovelos / terminações dos braços */}
+      <path d="M 30 112 L 15 106" />
+      <path d="M 170 112 L 185 106" />
 
-      {/* ── Cabeça / círculo central ── */}
-      <circle cx="100" cy="90" r="9" style={circleStyle} />
+      {/* ── Cabeça (círculo) ── */}
+      <circle cx="100" cy="93" r="10" />
 
       {/* ── Tronco ── */}
-      <path d="M 100 79 L 100 68" style={pathStyle} />
+      <path d="M 100 83 L 100 58" />
 
-      {/* ── Galhos superiores — centro ── */}
-      <path d="M 100 68 L 100 45" style={pathStyle} />
+      {/* ── Copa: galhos principais ── */}
+      {/* Galho central para o topo */}
+      <path d="M 100 58 L 100 32" />
+      {/* Galho esquerdo principal */}
+      <path d="M 100 58 L 68 44" />
+      {/* Galho direito principal */}
+      <path d="M 100 58 L 132 44" />
 
-      {/* ── Galhos laterais principais ── */}
-      <path d="M 100 62 L 74 50" style={pathStyle} />
-      <path d="M 100 62 L 126 50" style={pathStyle} />
+      {/* ── Sub-galhos esquerda ── */}
+      <path d="M 68 44 L 44 32" />
+      <path d="M 68 44 L 56 28" />
+      {/* Sub-sub-galhos esquerda */}
+      <path d="M 44 32 L 28 22" />
+      <path d="M 44 32 L 36 18" />
+      <path d="M 44 32 L 22 36" />
 
-      {/* ── Sub-galhos esquerdos ── */}
-      <path d="M 74 50 L 55 40" style={pathStyle} />
-      <path d="M 74 50 L 66 35" style={pathStyle} />
-      <path d="M 55 40 L 44 30" style={pathStyle} />
-      <path d="M 55 40 L 42 42" style={pathStyle} />
+      {/* ── Sub-galhos direita ── */}
+      <path d="M 132 44 L 156 32" />
+      <path d="M 132 44 L 144 28" />
+      {/* Sub-sub-galhos direita */}
+      <path d="M 156 32 L 172 22" />
+      <path d="M 156 32 L 164 18" />
+      <path d="M 156 32 L 178 36" />
 
-      {/* ── Sub-galhos direitos ── */}
-      <path d="M 126 50 L 145 40" style={pathStyle} />
-      <path d="M 126 50 L 134 35" style={pathStyle} />
-      <path d="M 145 40 L 156 30" style={pathStyle} />
-      <path d="M 145 40 L 158 42" style={pathStyle} />
-
-      {/* ── Galho do topo ── */}
-      <path d="M 100 45 L 86 32" style={pathStyle} />
-      <path d="M 100 45 L 114 32" style={pathStyle} />
-      <path d="M 100 45 L 100 28" style={pathStyle} />
+      {/* ── Galhos do topo (centro) ── */}
+      <path d="M 100 32 L 88 18" />
+      <path d="M 100 32 L 112 18" />
+      <path d="M 100 32 L 100 15" />
     </motion.svg>
   );
 }
