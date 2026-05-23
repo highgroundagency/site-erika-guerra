@@ -186,7 +186,7 @@ export function Hero() {
                 }}
               >
                 <img
-                  src="/photos/dra-erika-hero.jpg"
+                  src="/dra-erika-hero.jpg"
                   alt="Dra. Érika Guerra, especialista em Nutrologia, Medicina Preventiva e Medicina do Sono, sorrindo em ambiente elegante"
                   className="w-full h-full object-cover object-top"
                   loading="eager"

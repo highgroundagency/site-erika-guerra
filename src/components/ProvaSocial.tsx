@@ -124,7 +124,7 @@ export function ProvaSocial() {
             >
               {/* SUBSTITUIR: dra-erika-clinica.jpg — recortar para mostrar rosto/ambiente sem destaque ao objeto na mão */}
               <img
-                src="/photos/dra-erika-clinica.jpg"
+                src="/dra-erika-clinica.jpg"
                 alt="Dra. Érika Guerra em seu consultório no Medical Center do Shopping Recife"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
