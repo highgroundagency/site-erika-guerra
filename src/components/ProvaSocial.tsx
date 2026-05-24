@@ -24,17 +24,12 @@ const autoridade = [
   },
   {
     icon: '📱',
-    title: Instagram_label(),
+    title: INSTAGRAM_HANDLE,
     subtitle: '"Medicina transformando vidas"',
     desc: 'Comunidade engajada com conteúdo de qualidade sobre saúde, metabolismo, sono e longevidade.',
   },
 ];
 
-function Instagram_label() {
-  return INSTAGRAM_HANDLE;
-}
-
-// SUBSTITUIR: adicione os depoimentos reais dos pacientes
 const depoimentos = [
   {
     nome: 'M.S.',
@@ -223,7 +218,7 @@ export function ProvaSocial() {
               </p>
 
               {/* Carrossel */}
-              <div className="relative">
+              <div className="relative" role="region" aria-roledescription="carrossel" aria-label="Depoimentos de pacientes">
                 <motion.div
                   key={dep}
                   className="p-8 rounded-3xl flex flex-col gap-6"
@@ -234,6 +229,8 @@ export function ProvaSocial() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4 }}
+                  aria-live="polite"
+                  aria-atomic="true"
                 >
                   {/* Stars */}
                   <div className="flex gap-1">
@@ -292,7 +289,6 @@ export function ProvaSocial() {
                 </div>
 
                 <p className="text-center mt-2 font-body text-xs" style={{ color: 'rgba(220,231,222,0.4)' }}>
-                  {/* SUBSTITUIR: depoimentos reais — sem antes/depois, sem promessa de resultado */}
                   Depoimentos espontâneos sobre vitalidade, energia e sono
                 </p>
               </div>

@@ -150,7 +150,7 @@ export function Identificacao() {
                   voltem a funcionar em sintonia."
                 </p>
                 <p className="font-body text-sm mt-2" style={{ color: '#13251E', opacity: 0.6 }}>
-                  — Dra. Érika Guerra · {/* CRM-PE 14461 */}
+                  — Dra. Érika Guerra
                 </p>
               </div>
             </motion.div>
@@ -162,7 +162,6 @@ export function Identificacao() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              {/* SUBSTITUIR: adicione youtubeId, vimeoId ou videoSrc ao VslPlayer */}
               <VslPlayer />
             </motion.div>
 

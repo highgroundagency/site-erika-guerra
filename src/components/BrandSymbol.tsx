@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
 interface BrandSymbolProps {
-  color?: string;      // mantido por compatibilidade, não usado com a imagem PNG
   size?: number;
   animate?: boolean;
   className?: string;
@@ -9,10 +8,6 @@ interface BrandSymbolProps {
 
 const LOGO_SRC = '/logo-simbolo-dourado-removebg-preview.png';
 
-/**
- * Símbolo oficial da Dra. Érika Guerra.
- * Usa o PNG real com fundo transparente (logo-simbolo-dourado-removebg-preview.png).
- */
 export function BrandSymbol({
   size = 80,
   animate = true,
@@ -30,6 +25,8 @@ export function BrandSymbol({
       animate={animate ? { opacity: 1, scale: 1 } : false}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       draggable={false}
+      loading="lazy"
+      decoding="async"
     />
   );
 }
