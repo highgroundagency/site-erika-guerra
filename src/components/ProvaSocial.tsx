@@ -180,7 +180,7 @@ export function ProvaSocial() {
 
             {/* Cobertura na imprensa — Folha de Pernambuco */}
             <a
-              href="https://www.folha.pe.com.br"
+              href="https://www.folhape.com.br/noticias/jejum-intermitente-low-carb-medica-erika-guerra-fala-sobre-a-dieta-ide/63369/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-5 p-5 rounded-2xl group transition-all hover:scale-[1.02]"
