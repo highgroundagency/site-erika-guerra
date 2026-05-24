@@ -11,7 +11,6 @@ interface VslPlayerProps {
 
 /**
  * Player de vídeo de vendas (VSL).
- * SUBSTITUIR: adicione youtubeId, vimeoId ou videoSrc com o vídeo real.
  * Se não houver poster, exibe um placeholder premium com identidade da marca.
  */
 export function VslPlayer({
@@ -74,7 +73,12 @@ export function VslPlayer({
       role="button"
       aria-label="Assistir mensagem da Dra. Érika Guerra"
       tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && hasVideo && setPlaying(true)}
+      onKeyDown={(e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && hasVideo) {
+          e.preventDefault();
+          setPlaying(true);
+        }
+      }}
       whileHover={hasVideo ? { scale: 1.01 } : undefined}
       transition={{ duration: 0.2 }}
     >

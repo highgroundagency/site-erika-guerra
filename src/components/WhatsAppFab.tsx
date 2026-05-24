@@ -7,7 +7,7 @@ export function WhatsAppFab() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-2xl"
+      className="fixed bottom-6 right-6 z-[9998] flex items-center justify-center w-16 h-16 rounded-full shadow-2xl"
       style={{ backgroundColor: '#25D366' }}
       aria-label="Agendar consulta via WhatsApp"
       initial={{ scale: 0, opacity: 0 }}
@@ -16,12 +16,11 @@ export function WhatsAppFab() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      {/* Pulse ring */}
       <span
         className="absolute inset-0 rounded-full"
         style={{ animation: 'pulse-ring 2s ease-out infinite', backgroundColor: '#25D366' }}
+        aria-hidden="true"
       />
-      {/* WhatsApp icon */}
       <svg
         viewBox="0 0 32 32"
         width="30"

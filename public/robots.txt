@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://draerikaguerra.com.br/sitemap.xml

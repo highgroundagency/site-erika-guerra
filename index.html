@@ -3,26 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo-simbolo-dourado-removebg-preview.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#175442" />
     <title>Dra. Érika Guerra · Nutrologia, Medicina Preventiva e do Sono · Recife</title>
     <meta name="description" content="Medicina transformando vidas. Dra. Érika Guerra (CRM-PE 14461) — especialista em Nutrologia, Medicina Preventiva e Medicina do Sono. Atendimento no Medical Center do Shopping Recife, Boa Viagem." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://draerikaguerra.com.br/" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Dra. Érika Guerra · Medicina Transformando Vidas" />
     <meta property="og:description" content="Médica especialista em Nutrologia, Medicina Preventiva e do Sono. Planos de precisão médica baseados no mapeamento do seu metabolismo, genética e qualidade do sono." />
-    <meta property="og:image" content="/photos/dra-erika-hero.jpg" />
+    <meta property="og:image" content="https://draerikaguerra.com.br/dra-erika-hero.jpg" />
+    <meta property="og:url" content="https://draerikaguerra.com.br/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Dra. Érika Guerra" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dra. Érika Guerra · Medicina Transformando Vidas" />
+    <meta name="twitter:description" content="Médica especialista em Nutrologia, Medicina Preventiva e do Sono — Recife/PE." />
+    <meta name="twitter:image" content="https://draerikaguerra.com.br/dra-erika-hero.jpg" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/dra-erika-hero.jpg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org Physician -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Physician",
       "name": "Dra. Érika Guerra",
+      "image": "https://draerikaguerra.com.br/dra-erika-hero.jpg",
       "medicalSpecialty": ["Nutrologia", "Medicina Preventiva", "Medicina do Sono"],
       "identifier": "CRM-PE 14461",
       "telephone": "+55 81 98162-8282",
+      "url": "https://draerikaguerra.com.br/",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rua Padre Carapuceiro, 777, Loja 13 SC PC 5 Etapa, Sala 06",
@@ -36,8 +54,14 @@
         "latitude": "-8.1208",
         "longitude": "-34.9005"
       },
-      "url": "https://draerikaguerra.com.br",
-      "sameAs": ["https://www.instagram.com/draerikaguerra"]
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "description": "Atendimento mediante agendamento prévio via WhatsApp"
+      },
+      "sameAs": [
+        "https://www.instagram.com/draerikaguerra"
+      ]
     }
     </script>
   </head>
