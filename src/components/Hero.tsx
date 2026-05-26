@@ -50,7 +50,7 @@ export function Hero() {
                   className="font-body font-light"
                   style={{ color: '#B49964', fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}
                 >
-                  {CRM} · Medicina Preventiva · Nutrologia · Sono
+                  {CRM} · Medicina Funcional e Integrativa
                 </p>
               </div>
             </motion.div>
@@ -64,9 +64,9 @@ export function Hero() {
               className="font-display font-medium"
               style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', color: '#F6EADC', lineHeight: 1.1 }}
             >
-              A sua saúde não pode ser guiada por{' '}
+              Tratar a causa,{' '}
               <em style={{ color: '#D4B883', fontStyle: 'italic' }}>
-                fórmulas genéricas.
+                não apenas o sintoma.
               </em>
             </motion.h1>
 
@@ -79,10 +79,10 @@ export function Hero() {
               className="font-body font-light leading-relaxed"
               style={{ color: '#DCE7DE', fontSize: 'clamp(1rem, 2vw, 1.125rem)', maxWidth: '540px' }}
             >
-              Descubra a sua rota biológica para um emagrecimento sustentável e uma
-              vida com mais energia. Planos de precisão médica baseados no mapeamento
-              do seu metabolismo, genética e qualidade do sono — atendimento exclusivo
-              no Medical Center do Shopping Recife.
+              Medicina funcional e integrativa em Recife. Seu corpo é uma rede
+              de sistemas que conversam entre si — quando uma engrenagem sai de
+              sintonia, tudo sente. Um cuidado que vai à raiz do que está
+              interferindo na sua qualidade de vida.
             </motion.p>
 
             {/* CTA */}
@@ -183,7 +183,7 @@ export function Hero() {
               >
                 <img
                   src="/dra-erika-hero.jpg"
-                  alt="Dra. Érika Guerra, especialista em Nutrologia, Medicina Preventiva e Medicina do Sono, sorrindo em ambiente elegante"
+                  alt="Dra. Érika Guerra, médica com atuação em medicina funcional e integrativa, sorrindo em ambiente elegante"
                   className="w-full h-full object-cover"
                   style={{ objectPosition: '50% 15%', transform: 'scale(1.35)', transformOrigin: '50% 20%' }}
                   loading="eager"

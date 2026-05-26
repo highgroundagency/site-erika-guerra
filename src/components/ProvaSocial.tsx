@@ -14,7 +14,7 @@ const autoridade = [
     icon: '🎤',
     title: 'I Simpósio de Nutrologia e Longevidade de PE',
     subtitle: 'Palestrante — Cadeira "Sono"',
-    desc: 'Palestrante convidada no maior evento de nutrologia e longevidade de Pernambuco, no Empresarial RioMar.',
+    desc: 'Palestrante convidada no evento, no Empresarial RioMar — abordando o papel do sono na saúde metabólica e na longevidade.',
   },
   {
     icon: '🏆',

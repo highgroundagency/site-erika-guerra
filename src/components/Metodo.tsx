@@ -56,7 +56,7 @@ export function Metodo() {
           >
             <span className="h-px w-12" style={{ backgroundColor: '#B49964' }} />
             <span className="font-body font-semibold text-xs uppercase tracking-widest" style={{ color: '#B49964' }}>
-              O Protocolo de Precisão
+              O método · medicina funcional na prática
             </span>
             <span className="h-px w-12" style={{ backgroundColor: '#B49964' }} />
           </motion.div>
@@ -123,8 +123,9 @@ export function Metodo() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            O Protocolo de Precisão é estruturado em 5 pilares que, juntos, revelam o mapa completo
-            do seu organismo — e permitem criar um plano realmente personalizado.
+            Esses 5 pilares são a aplicação prática da medicina funcional: enxergar o corpo
+            como uma rede de sistemas interconectados e mapear, com profundidade,
+            o que está fora de sintonia — para então construir um plano realmente personalizado.
           </motion.p>
         </div>
 
@@ -211,13 +212,14 @@ export function Metodo() {
             }}
           >
             <p className="font-body font-semibold text-xs uppercase tracking-widest mb-4" style={{ color: '#B49964' }}>
-              O avanço da medicina
+              Uma abordagem que pergunta "por quê?"
             </p>
             <p className="font-body leading-relaxed" style={{ color: '#13251E', fontSize: '1.05rem' }}>
-              A medicina preventiva e personalizada de hoje nos permite enxergar o corpo com uma
-              profundidade que há poucos anos seria impensável. Não se trata de encontrar a dieta perfeita —
-              mas de descobrir o <strong style={{ color: '#175442' }}>protocolo único</strong> que respeita
-              a sua biologia, o seu histórico e o seu momento de vida.
+              A medicina funcional não busca a dieta perfeita nem o suplemento da moda —
+              ela investiga <strong style={{ color: '#175442' }}>a raiz</strong> do que está
+              fora de sintonia no seu organismo. Genética, ambiente, rotina, hormônios, sono,
+              microbiota: tudo conversa entre si. Quando se entende essa conversa, o cuidado
+              deixa de ser genérico e passa a fazer sentido para o <em>seu</em> corpo.
             </p>
           </div>
         </motion.div>
@@ -237,7 +239,7 @@ export function Metodo() {
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-body font-semibold text-base transition-all hover:scale-105 hover:shadow-xl"
             style={{ backgroundColor: '#175442', color: '#F6EADC', boxShadow: '0 8px 32px rgba(23,84,66,0.2)' }}
           >
-            Iniciar meu mapeamento de precisão
+            Iniciar meu mapeamento funcional
           </a>
         </motion.div>
       </div>

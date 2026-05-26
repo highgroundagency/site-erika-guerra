@@ -4,12 +4,12 @@ import { VslPlayer } from './VslPlayer';
 import { WHATSAPP_URL } from '../config/contact';
 
 const dores = [
+  { emoji: '🩺', text: 'Fez exames e ouviu que "está tudo normal" — mas você sente que não está' },
   { emoji: '😴', text: 'Cansaço crônico que não passa nem dormindo' },
-  { emoji: '🔄', text: 'Efeito sanfona — perde e recupera o mesmo peso' },
-  { emoji: '🧠', text: 'Névoa mental, foco disperso, sem energia' },
+  { emoji: '🧠', text: 'Névoa mental, foco disperso, sensação de não ser mais você' },
   { emoji: '🌙', text: 'Noites mal dormidas que sabotam o seu dia' },
-  { emoji: '⚡', text: 'Metabolismo travado mesmo fazendo tudo "certo"' },
-  { emoji: '😤', text: 'Frustração com dietas da moda que não funcionam' },
+  { emoji: '⚡', text: 'Metabolismo travado mesmo fazendo "tudo certo"' },
+  { emoji: '🔄', text: 'Já tentou de tudo — dietas, suplementos, rotinas — e nada se sustentou' },
 ];
 
 const containerVariants = {
@@ -67,22 +67,23 @@ export function Identificacao() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Você já tentou de tudo —<br />
-          <em style={{ color: '#175442', fontStyle: 'italic' }}>e o corpo travou.</em>
+          E se o problema{' '}
+          <em style={{ color: '#175442', fontStyle: 'italic' }}>nunca foi você?</em>
         </motion.h2>
 
         <motion.p
           className="font-body leading-relaxed mb-12"
-          style={{ color: '#13251E', fontSize: '1.1rem', maxWidth: '620px', opacity: 0.85 }}
+          style={{ color: '#13251E', fontSize: '1.1rem', maxWidth: '640px', opacity: 0.85 }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Cortou carboidrato, fez jejum, seguiu a dieta da moda — e o resultado não veio.
-          A culpa <strong>não é sua</strong>: é a falta de individualização. Seu metabolismo
-          não cabe numa fórmula genérica. O jejum intermitente mal indicado, por exemplo,
-          pode até favorecer a perda de massa óssea, comprometendo sua saúde a longo prazo.
+          Você já fez exames, consultou, mudou a rotina, testou dietas — e ouviu
+          que "está tudo normal". Mas você sente que não está. O cansaço continua,
+          o sono não restaura, o corpo não responde. A medicina tradicional trata
+          sintomas isolados. A <strong>medicina funcional</strong> faz outra
+          pergunta: <em>por que isso está acontecendo?</em>
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -122,15 +123,15 @@ export function Identificacao() {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              "Se você se reconheceu em pelo menos uma dessas situações, existe uma explicação
-              — e ela começa com um mapeamento preciso do seu organismo."
+              "Se você se reconheceu em pelo menos uma dessas situações,
+              existe uma explicação — e ela está na causa, não no sintoma."
             </motion.p>
           </div>
 
           {/* ── VSL + Engrenagens ── */}
           <div className="flex flex-col gap-10">
 
-            {/* Engrenagens */}
+            {/* Engrenagens — metáfora literal da medicina funcional: sistemas interconectados */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -143,11 +144,17 @@ export function Identificacao() {
               >
                 <ScrollGears />
                 <p
-                  className="font-display text-xl italic mt-2"
+                  className="font-body font-semibold text-xs uppercase tracking-widest mb-3"
+                  style={{ color: '#B49964' }}
+                >
+                  A visão funcional
+                </p>
+                <p
+                  className="font-display text-xl italic"
                   style={{ color: '#175442' }}
                 >
-                  "Eu cuido para que as engrenagens do seu corpo<br />
-                  voltem a funcionar em sintonia."
+                  "Seu corpo é uma rede de sistemas que conversam entre si.<br />
+                  Quando uma engrenagem sai de sintonia, tudo sente."
                 </p>
                 <p className="font-body text-sm mt-2" style={{ color: '#13251E', opacity: 0.6 }}>
                   — Dra. Érika Guerra
@@ -179,7 +186,7 @@ export function Identificacao() {
                 className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-body font-semibold text-base w-full justify-center transition-all hover:scale-105"
                 style={{ backgroundColor: '#175442', color: '#F6EADC', boxShadow: '0 8px 32px rgba(23,84,66,0.25)' }}
               >
-                Quero entender o que está travando o meu metabolismo
+                Quero descobrir a causa raiz
               </a>
             </motion.div>
           </div>

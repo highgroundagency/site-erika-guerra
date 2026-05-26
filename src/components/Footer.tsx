@@ -28,8 +28,9 @@ export function Footer() {
               </div>
             </div>
             <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(220,231,222,0.65)' }}>
-              Especialista em Nutrologia, Medicina Preventiva e Medicina do Sono.
-              Protocolos de precisão médica baseados no mapeamento individual do seu organismo.
+              Médica com atuação em medicina funcional e integrativa.
+              Foco em metabolismo, sono, hormônios, climatério e emagrecimento sustentável —
+              tratando a causa raiz, não apenas o sintoma.
             </p>
             <p className="font-body text-xs font-semibold" style={{ color: '#B49964' }}>
               {CRM}

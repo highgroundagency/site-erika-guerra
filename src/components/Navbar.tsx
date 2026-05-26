@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Início', href: '#inicio' },
   { label: 'A Médica', href: '#autoridade' },
   { label: 'O Método', href: '#metodo' },
+  { label: 'Programas', href: '#programas' },
   { label: 'Localização', href: '#localizacao' },
 ];
 

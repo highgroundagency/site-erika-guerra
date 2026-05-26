@@ -55,7 +55,7 @@ export function SuperPromessa() {
         >
           <span className="h-px w-12" style={{ backgroundColor: '#B49964' }} />
           <span className="font-body font-semibold text-xs uppercase tracking-widest" style={{ color: '#B49964' }}>
-            A transformação possível
+            Quando o corpo volta a funcionar
           </span>
           <span className="h-px w-12" style={{ backgroundColor: '#B49964' }} />
         </motion.div>
@@ -75,7 +75,7 @@ export function SuperPromessa() {
         >
           Imagine acordar com energia, dormir um sono que{' '}
           <em style={{ color: '#D4B883', fontStyle: 'italic' }}>de fato restaura</em>,{' '}
-          e ter uma relação leve e definitiva com o seu corpo.
+          e sentir o seu corpo trabalhando a seu favor de novo.
         </motion.h2>
 
         <motion.p
@@ -86,10 +86,10 @@ export function SuperPromessa() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          Não por mais uma dieta — mas porque finalmente alguém entendeu como{' '}
-          <strong style={{ color: '#D4B883' }}>o seu</strong> organismo funciona.
-          A estética saudável é a <em>consequência</em> de um corpo em equilíbrio,
-          não uma meta isolada. Esse é o ponto de partida de um novo capítulo da sua saúde.
+          O emagrecimento costuma ser o primeiro passo — e, quando se trata a{' '}
+          <strong style={{ color: '#D4B883' }}>causa</strong>, ele vem de forma mais leve,
+          mais fácil e mais duradoura. Mas ele é só o começo: o que se constrói
+          é um cuidado com o seu funcionamento como um todo.
         </motion.p>
 
         {/* Pilares preview */}

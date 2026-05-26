@@ -5,6 +5,7 @@ import { Identificacao } from './components/Identificacao';
 import { ProvaSocial } from './components/ProvaSocial';
 import { SuperPromessa } from './components/SuperPromessa';
 import { Metodo } from './components/Metodo';
+import { Programas } from './components/Programas';
 import { Localizacao } from './components/Localizacao';
 import { Footer } from './components/Footer';
 import { WhatsAppFab } from './components/WhatsAppFab';
@@ -32,6 +33,7 @@ function App() {
         <ProvaSocial />
         <SuperPromessa />
         <Metodo />
+        <Programas />
         <Localizacao />
       </main>
       <Footer />
