@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Users, Salad } from 'lucide-react';
+import { ArrowRight, Users } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { programas, programaWhatsAppUrl } from '../config/programas';
 import { WHATSAPP_URL } from '../config/contact';
@@ -199,12 +199,12 @@ export function Programas() {
               </p>
 
               <div className="flex items-center gap-3">
-                <div
-                  className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: 'rgba(180,153,100,0.2)' }}
-                >
-                  <Salad size={18} style={{ color: '#B49964' }} />
-                </div>
+                <img
+                  src="/luana-moura-nutricionista.jpg"
+                  alt="Luana Moura, nutricionista"
+                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                  style={{ border: '2px solid rgba(180,153,100,0.5)' }}
+                />
                 <div>
                   <p className="font-body font-semibold text-sm" style={{ color: '#F6EADC' }}>
                     Luana Moura
