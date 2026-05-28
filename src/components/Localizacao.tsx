@@ -119,8 +119,11 @@ export function Localizacao() {
                 </div>
                 <div>
                   <p className="font-body font-semibold mb-1" style={{ color: '#F6EADC' }}>Atendimento</p>
-                  <p className="font-body text-sm" style={{ color: '#DCE7DE' }}>
-                    Consultas mediante agendamento prévio via WhatsApp
+                  <p className="font-body text-sm leading-relaxed" style={{ color: '#DCE7DE' }}>
+                    Terça, quarta e quinta<br />
+                    <span style={{ color: '#D4B883', fontWeight: 600 }}>14h às 19h</span>
+                    <br />
+                    <span style={{ opacity: 0.75 }}>Agendamento via WhatsApp</span>
                   </p>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, Users, Salad } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { programas, programaWhatsAppUrl } from '../config/programas';
 import { WHATSAPP_URL } from '../config/contact';
@@ -186,18 +186,34 @@ export function Programas() {
                 className="font-display font-medium mb-3"
                 style={{ fontSize: 'clamp(1.3rem, 2.4vw, 1.7rem)', color: '#F6EADC', lineHeight: 1.25 }}
               >
-                Médica + nutricionista, trabalhando em conjunto.
+                Dra. Érika + Luana Moura, trabalhando em conjunto.
               </h3>
 
               <p
-                className="font-body leading-relaxed"
+                className="font-body leading-relaxed mb-5"
                 style={{ color: '#DCE7DE', fontSize: '1rem', maxWidth: '560px' }}
               >
                 Toda transformação real precisa de mais de um olhar. Por isso,
-                o cuidado é feito em parceria com nutricionista — para que o plano
+                o cuidado é feito em parceria com a nutricionista Luana Moura — para que o plano
                 clínico e o plano alimentar caminhem juntos, conversando entre si.
-                {/* nutricionista: nome + foto — adicionar quando a Dra. confirmar */}
               </p>
+
+              <div className="flex items-center gap-3">
+                <div
+                  className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: 'rgba(180,153,100,0.2)' }}
+                >
+                  <Salad size={18} style={{ color: '#B49964' }} />
+                </div>
+                <div>
+                  <p className="font-body font-semibold text-sm" style={{ color: '#F6EADC' }}>
+                    Luana Moura
+                  </p>
+                  <p className="font-body text-xs" style={{ color: '#B49964' }}>
+                    Nutricionista · CRN-PE 32456/P
+                  </p>
+                </div>
+              </div>
             </div>
 
             <a
