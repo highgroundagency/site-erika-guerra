@@ -1,24 +1,26 @@
 import { motion } from 'framer-motion';
+import { ClipboardList, BatteryLow, Brain, Moon, Flame, Repeat, type LucideIcon } from 'lucide-react';
+import { SectionLabel } from './SectionLabel';
 import { ScrollGears } from './ScrollGears';
 import { VslPlayer } from './VslPlayer';
 import { WHATSAPP_URL } from '../config/contact';
 
-const dores = [
-  { emoji: '🩺', text: 'Fez exames e ouviu que "está tudo normal" — mas você sente que não está' },
-  { emoji: '😴', text: 'Cansaço crônico que não passa nem dormindo' },
-  { emoji: '🧠', text: 'Névoa mental, foco disperso, sensação de não ser mais você' },
-  { emoji: '🌙', text: 'Noites mal dormidas que sabotam o seu dia' },
-  { emoji: '⚡', text: 'Metabolismo travado mesmo fazendo "tudo certo"' },
-  { emoji: '🔄', text: 'Já tentou de tudo — dietas, suplementos, rotinas — e nada se sustentou' },
+const dores: { icon: LucideIcon; text: string }[] = [
+  { icon: ClipboardList, text: 'Fez exames, ouviu que "está tudo normal" — mas você sente que não está.' },
+  { icon: BatteryLow, text: 'Um cansaço que não passa, nem depois de dormir.' },
+  { icon: Brain, text: 'Névoa mental, foco disperso, a sensação de não ser mais você.' },
+  { icon: Moon, text: 'Noites mal dormidas que sabotam o dia seguinte.' },
+  { icon: Flame, text: 'Metabolismo travado, mesmo fazendo tudo "certo".' },
+  { icon: Repeat, text: 'Já tentou de tudo — dietas, suplementos, rotinas — e nada se sustentou.' },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -16 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
 };
 
@@ -30,39 +32,17 @@ export function Identificacao() {
       style={{ backgroundColor: '#F6EADC' }}
     >
       {/* Top divider */}
-      <div className="absolute top-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(90deg, transparent, #B49964, transparent)' }} />
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #B49964, transparent)' }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
 
-        {/* Section label */}
-        <motion.div
-          className="flex items-center gap-3 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span
-            className="h-px flex-1 max-w-16"
-            style={{ backgroundColor: '#B49964' }}
-          />
-          <span
-            className="font-body font-semibold text-xs uppercase tracking-widest"
-            style={{ color: '#B49964' }}
-          >
-            Você se reconhece aqui?
-          </span>
-        </motion.div>
+        <SectionLabel>Você se reconhece aqui?</SectionLabel>
 
         {/* Headline */}
         <motion.h2
           className="font-display font-medium mb-6"
-          style={{
-            fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-            color: '#13251E',
-            maxWidth: '700px',
-          }}
-          initial={{ opacity: 0, y: 30 }}
+          style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', color: '#13251E', maxWidth: '700px' }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
@@ -72,91 +52,95 @@ export function Identificacao() {
         </motion.h2>
 
         <motion.p
-          className="font-body leading-relaxed mb-12"
-          style={{ color: '#13251E', fontSize: '1.1rem', maxWidth: '640px', opacity: 0.85 }}
-          initial={{ opacity: 0, y: 20 }}
+          className="font-body leading-relaxed mb-14"
+          style={{ color: '#13251E', fontSize: '1.1rem', maxWidth: '620px', opacity: 0.82 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Você já fez exames, consultou, mudou a rotina, testou dietas — e ouviu
-          que "está tudo normal". Mas você sente que não está. O cansaço continua,
-          o sono não restaura, o corpo não responde. A medicina tradicional trata
-          sintomas isolados. A <strong>medicina funcional</strong> faz outra
-          pergunta: <em>por que isso está acontecendo?</em>
+          Você fez exames, consultou, mudou a rotina — e ouviu que está tudo normal.
+          Mas você sente que não está. A medicina tradicional costuma tratar sintomas
+          isolados. A <strong style={{ color: '#175442' }}>medicina funcional</strong> faz
+          outra pergunta: <em>por que isso está acontecendo?</em>
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* ── Dores checklist ── */}
+          {/* ── Dores ── */}
           <div>
             <motion.ul
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-3"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {dores.map((dor, i) => (
-                <motion.li
-                  key={i}
-                  variants={itemVariants}
-                  className="flex items-start gap-4 p-4 rounded-2xl"
-                  style={{
-                    backgroundColor: 'rgba(23,84,66,0.06)',
-                    border: '1px solid rgba(23,84,66,0.1)',
-                  }}
-                >
-                  <span className="text-2xl flex-shrink-0">{dor.emoji}</span>
-                  <p className="font-body font-medium" style={{ color: '#13251E', lineHeight: 1.5 }}>
-                    {dor.text}
-                  </p>
-                </motion.li>
-              ))}
+              {dores.map((dor, i) => {
+                const Icon = dor.icon;
+                return (
+                  <motion.li
+                    key={i}
+                    variants={itemVariants}
+                    className="flex items-center gap-4 p-4 rounded-2xl transition-colors"
+                    style={{
+                      backgroundColor: 'rgba(23,84,66,0.045)',
+                      border: '1px solid rgba(23,84,66,0.09)',
+                    }}
+                  >
+                    <span
+                      className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl"
+                      style={{ backgroundColor: 'rgba(180,153,100,0.14)', color: '#175442' }}
+                    >
+                      <Icon size={20} strokeWidth={1.6} />
+                    </span>
+                    <p className="font-body font-medium" style={{ color: '#13251E', lineHeight: 1.45, fontSize: '0.98rem' }}>
+                      {dor.text}
+                    </p>
+                  </motion.li>
+                );
+              })}
             </motion.ul>
 
             <motion.p
               className="mt-8 font-display text-xl italic"
-              style={{ color: '#175442' }}
+              style={{ color: '#175442', maxWidth: '520px', lineHeight: 1.5 }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.4 }}
             >
-              "Se você se reconheceu em pelo menos uma dessas situações,
-              existe uma explicação — e ela está na causa, não no sintoma."
+              Se você se reconheceu em pelo menos uma dessas situações, existe uma
+              explicação — e ela está na causa, não no sintoma.
             </motion.p>
           </div>
 
-          {/* ── VSL + Engrenagens ── */}
+          {/* ── Visão funcional + VSL ── */}
           <div className="flex flex-col gap-10">
 
-            {/* Engrenagens — metáfora literal da medicina funcional: sistemas interconectados */}
+            {/* Engrenagens — metáfora literal: sistemas interconectados */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
               <div
                 className="rounded-3xl p-8 text-center"
-                style={{ backgroundColor: 'rgba(23,84,66,0.06)', border: '1px solid rgba(23,84,66,0.12)' }}
+                style={{ backgroundColor: 'rgba(23,84,66,0.05)', border: '1px solid rgba(23,84,66,0.1)' }}
               >
                 <ScrollGears />
                 <p
-                  className="font-body font-semibold text-xs uppercase tracking-widest mb-3"
-                  style={{ color: '#B49964' }}
+                  className="font-body font-semibold uppercase mb-3"
+                  style={{ color: '#B49964', fontSize: '0.7rem', letterSpacing: '0.2em' }}
                 >
                   A visão funcional
                 </p>
-                <p
-                  className="font-display text-xl italic"
-                  style={{ color: '#175442' }}
-                >
-                  "Seu corpo é uma rede de sistemas que conversam entre si.<br />
-                  Quando uma engrenagem sai de sintonia, tudo sente."
+                <p className="font-display text-xl italic" style={{ color: '#175442', lineHeight: 1.45 }}>
+                  Seu corpo é uma rede de sistemas que conversam entre si. Quando uma
+                  engrenagem sai de sintonia, tudo sente.
                 </p>
-                <p className="font-body text-sm mt-2" style={{ color: '#13251E', opacity: 0.6 }}>
+                <p className="font-body text-sm mt-3" style={{ color: '#13251E', opacity: 0.55 }}>
                   — Dra. Érika Guerra
                 </p>
               </div>
@@ -164,10 +148,10 @@ export function Identificacao() {
 
             {/* VSL */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
             >
               <VslPlayer />
             </motion.div>
@@ -177,14 +161,14 @@ export function Identificacao() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.25 }}
             >
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-body font-semibold text-base w-full justify-center transition-all hover:scale-105"
-                style={{ backgroundColor: '#175442', color: '#F6EADC', boxShadow: '0 8px 32px rgba(23,84,66,0.25)' }}
+                className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-body font-semibold text-base w-full justify-center transition-all hover:scale-[1.02]"
+                style={{ backgroundColor: '#175442', color: '#F6EADC', boxShadow: '0 8px 32px rgba(23,84,66,0.22)' }}
               >
                 Quero descobrir a causa raiz
               </a>

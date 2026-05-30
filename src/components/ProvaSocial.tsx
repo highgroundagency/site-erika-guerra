@@ -1,56 +1,23 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Newspaper, Mic, Award, AtSign, Ear, Search, UserCheck, ShieldCheck, ArrowUpRight, type LucideIcon } from 'lucide-react';
+import { SectionLabel } from './SectionLabel';
 import { WHATSAPP_URL, CRM, INSTAGRAM_HANDLE } from '../config/contact';
 
-const autoridade = [
-  {
-    icon: '📰',
-    title: 'Folha de Pernambuco',
-    subtitle: 'Coluna "Sucesso"',
-    desc: 'Colunista de saúde convidada, desmistificando mitos alimentares e alertando sobre automedicação e dietas restritivas.',
-  },
-  {
-    icon: '🎤',
-    title: 'I Simpósio de Nutrologia e Longevidade de PE',
-    subtitle: 'Palestrante — Cadeira "Sono"',
-    desc: 'Palestrante convidada no evento, no Empresarial RioMar — abordando o papel do sono na saúde metabólica e na longevidade.',
-  },
-  {
-    icon: '🏆',
-    title: 'Summit Êxito de Empreendedorismo',
-    subtitle: 'Painelista — Tema "Protagonismo"',
-    desc: 'Reconhecida como referência em protagonismo na saúde e no empreendedorismo médico.',
-  },
-  {
-    icon: '📱',
-    title: INSTAGRAM_HANDLE,
-    subtitle: '"Medicina transformando vidas"',
-    desc: 'Comunidade engajada com conteúdo de qualidade sobre saúde, metabolismo, sono e longevidade.',
-  },
+const autoridade: { icon: LucideIcon; title: string; subtitle: string }[] = [
+  { icon: Newspaper, title: 'Folha de Pernambuco', subtitle: 'Colunista convidada · coluna "Sucesso"' },
+  { icon: Mic, title: 'I Simpósio de Nutrologia e Longevidade de PE', subtitle: 'Palestrante · cadeira "Sono" — Empresarial RioMar' },
+  { icon: Award, title: 'Summit Êxito de Empreendedorismo', subtitle: 'Painelista · tema "Protagonismo"' },
+  { icon: AtSign, title: INSTAGRAM_HANDLE, subtitle: 'Instagram · comunidade engajada e conteúdo educativo' },
 ];
 
-const depoimentos = [
-  {
-    nome: 'M.S.',
-    texto: 'A Dra. Érika foi a primeira médica que realmente olhou para mim como um todo. Entendeu meu cansaço, meu sono, minha relação com a comida. Sinto que finalmente tenho energia para viver.',
-    destaque: 'Energia de volta',
-  },
-  {
-    nome: 'R.F.',
-    texto: 'Depois de anos tentando dietas e não conseguindo dormir direito, o protocolo da Dra. Érika mudou minha vida. Durmo bem, acordo disposta e minha relação com o corpo é outra.',
-    destaque: 'Sono restaurador',
-  },
-  {
-    nome: 'C.A.',
-    texto: 'O que me surpreendeu foi a profundidade do mapeamento. Ela identificou coisas que nunca foram investigadas antes. Me sinto cuidada de verdade.',
-    destaque: 'Cuidado de verdade',
-  },
+const principios: { icon: LucideIcon; title: string; desc: string }[] = [
+  { icon: Ear, title: 'Escuta sem pressa', desc: 'Consultas com tempo para entender a sua história por inteiro.' },
+  { icon: Search, title: 'Investigação da causa', desc: 'Mapeamento profundo do que está fora de sintonia — não só do sintoma.' },
+  { icon: UserCheck, title: 'Plano individualizado', desc: 'Nada de protocolo de prateleira: o cuidado é desenhado para o seu corpo.' },
+  { icon: ShieldCheck, title: 'Ética e transparência', desc: 'Sem promessas milagrosas — medicina baseada em método e evidência.' },
 ];
 
 export function ProvaSocial() {
-  const [dep, setDep] = useState(0);
-
   return (
     <section
       id="autoridade"
@@ -66,53 +33,40 @@ export function ProvaSocial() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
 
-        {/* Label */}
-        <motion.div
-          className="flex items-center gap-3 mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <span className="h-px flex-1 max-w-16" style={{ backgroundColor: '#B49964' }} />
-          <span className="font-body font-semibold text-xs uppercase tracking-widest" style={{ color: '#B49964' }}>
-            Autoridade reconhecida em Pernambuco
-          </span>
-        </motion.div>
+        <SectionLabel tone="light">Trajetória reconhecida em Pernambuco</SectionLabel>
 
-        {/* Headline */}
         <motion.h2
           className="font-display font-medium mb-4"
-          style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', color: '#F6EADC', maxWidth: '640px' }}
-          initial={{ opacity: 0, y: 30 }}
+          style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', color: '#F6EADC', maxWidth: '640px' }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Mais de 9 anos transformando a saúde de pacientes em Recife.
+          Mais de 9 anos dedicados à saúde de pacientes em Recife.
         </motion.h2>
 
         <motion.p
           className="font-body leading-relaxed mb-16"
-          style={{ color: '#DCE7DE', fontSize: '1.05rem', maxWidth: '560px' }}
-          initial={{ opacity: 0, y: 20 }}
+          style={{ color: '#DCE7DE', fontSize: '1.05rem', maxWidth: '580px', opacity: 0.9 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Consultório próprio ativo desde 2017, com trajetória consolidada — do Empresarial RioMar Trade Center ao
-          Medical Center do Shopping Recife, no coração de Boa Viagem.
+          Consultório próprio ativo desde 2017, com trajetória consolidada — do Empresarial
+          RioMar Trade Center ao Medical Center do Shopping Recife, no coração de Boa Viagem.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-          {/* ── Foto + Cards ── */}
+          {/* ── Foto + credenciais ── */}
           <div className="flex flex-col gap-6">
 
-            {/* Foto da clínica */}
             <motion.div
               className="relative rounded-3xl overflow-hidden"
               style={{ aspectRatio: '4/3', border: '1px solid rgba(180,153,100,0.3)' }}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
@@ -127,50 +81,51 @@ export function ProvaSocial() {
                   const t = e.target as HTMLImageElement;
                   t.style.display = 'none';
                   t.parentElement!.style.background = 'linear-gradient(135deg, #0E3528, #175442)';
-                  t.parentElement!.innerHTML += `<div style="display:flex;align-items:center;justify-content:center;height:100%;"><p style="color:#B49964;font-size:0.85rem;text-align:center;padding:16px;">📷 Foto do consultório<br/><span style="color:#DCE7DE;font-size:0.75rem;">dra-erika-clinica.jpg</span></p></div>`;
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-verde-eclipse/40 to-transparent" />
-
-              {/* CRM badge */}
               <div
                 className="absolute top-4 left-4 px-3 py-1.5 rounded-full font-body text-xs font-semibold"
-                style={{ backgroundColor: 'rgba(180,153,100,0.9)', color: '#0E3528' }}
+                style={{ backgroundColor: 'rgba(180,153,100,0.92)', color: '#0E3528' }}
               >
                 {CRM}
               </div>
             </motion.div>
 
             {/* Cards autoridade */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {autoridade.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="flex flex-col gap-2 p-5 rounded-2xl"
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.06)',
-                    border: '1px solid rgba(180,153,100,0.2)',
-                    backdropFilter: 'blur(8px)',
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{
-                    backgroundColor: 'rgba(180,153,100,0.1)',
-                    borderColor: 'rgba(180,153,100,0.4)',
-                    y: -2,
-                  }}
-                >
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="font-body font-bold text-sm leading-tight" style={{ color: '#D4B883' }}>
-                    {item.title}
-                  </p>
-                  <p className="font-body font-medium text-xs" style={{ color: '#DCE7DE' }}>
-                    {item.subtitle}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {autoridade.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    className="flex flex-col gap-2.5 p-5 rounded-2xl"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(180,153,100,0.2)',
+                      backdropFilter: 'blur(8px)',
+                    }}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.08 }}
+                    whileHover={{ backgroundColor: 'rgba(180,153,100,0.1)', borderColor: 'rgba(180,153,100,0.4)', y: -2 }}
+                  >
+                    <span
+                      className="flex items-center justify-center w-9 h-9 rounded-lg"
+                      style={{ backgroundColor: 'rgba(180,153,100,0.18)', color: '#D4B883' }}
+                    >
+                      <Icon size={18} strokeWidth={1.7} />
+                    </span>
+                    <p className="font-body font-bold text-sm leading-tight" style={{ color: '#D4B883' }}>
+                      {item.title}
+                    </p>
+                    <p className="font-body font-medium text-xs leading-snug" style={{ color: '#DCE7DE', opacity: 0.85 }}>
+                      {item.subtitle}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Cobertura na imprensa — Folha de Pernambuco */}
@@ -178,120 +133,73 @@ export function ProvaSocial() {
               href="https://www.folhape.com.br/noticias/jejum-intermitente-low-carb-medica-erika-guerra-fala-sobre-a-dieta-ide/63369/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 p-5 rounded-2xl group transition-all hover:scale-[1.02]"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(180,153,100,0.25)',
-              }}
+              className="flex items-center gap-5 p-5 rounded-2xl group transition-all hover:scale-[1.01]"
+              style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(180,153,100,0.25)' }}
             >
-              {/* Logotipo tipográfico da Folha */}
               <div
                 className="flex-shrink-0 flex items-center justify-center px-4 py-2 rounded-xl"
                 style={{ backgroundColor: '#C8102E', minWidth: 80 }}
               >
                 <span className="font-display font-bold text-white text-sm leading-tight text-center">
-                  Folha<br/>PE
+                  Folha<br />PE
                 </span>
               </div>
               <div>
                 <p className="font-body font-bold text-sm" style={{ color: '#D4B883' }}>
-                  Folha de Pernambuco
+                  Matéria na Folha de Pernambuco
                 </p>
                 <p className="font-body text-xs leading-snug mt-0.5" style={{ color: '#DCE7DE', opacity: 0.8 }}>
-                  Colunista convidada na coluna <strong style={{ color: '#D4B883' }}>"Sucesso"</strong> —
-                  desmistificando mitos alimentares e alertando sobre automedicação e dietas restritivas.
+                  Desmistificando mitos alimentares e alertando sobre automedicação e dietas restritivas.
                 </p>
               </div>
-              <span className="ml-auto text-xs flex-shrink-0" style={{ color: 'rgba(212,184,131,0.5)' }}>→</span>
+              <ArrowUpRight size={18} strokeWidth={1.8} className="ml-auto flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: 'rgba(212,184,131,0.6)' }} />
             </a>
           </div>
 
-          {/* ── Depoimentos ── */}
+          {/* ── Princípios do atendimento (prova social ética) ── */}
           <div className="flex flex-col gap-6">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              className="p-8 md:p-9 rounded-3xl"
+              style={{ backgroundColor: 'rgba(14,53,40,0.55)', border: '1px solid rgba(180,153,100,0.22)' }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
             >
-              <p className="font-body font-semibold text-xs uppercase tracking-widest mb-6" style={{ color: '#B49964' }}>
-                O que os pacientes dizem
+              <p className="font-body font-semibold uppercase mb-7" style={{ color: '#B49964', fontSize: '0.7rem', letterSpacing: '0.2em' }}>
+                O cuidado que você pode esperar
               </p>
 
-              {/* Carrossel */}
-              <div className="relative" role="region" aria-roledescription="carrossel" aria-label="Depoimentos de pacientes">
-                <motion.div
-                  key={dep}
-                  className="p-8 rounded-3xl flex flex-col gap-6"
-                  style={{
-                    backgroundColor: 'rgba(14,53,40,0.6)',
-                    border: '1px solid rgba(180,153,100,0.2)',
-                  }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4 }}
-                  aria-live="polite"
-                  aria-atomic="true"
-                >
-                  {/* Stars */}
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} style={{ color: '#B49964' }}>★</span>
-                    ))}
-                  </div>
-
-                  <p className="font-display text-lg italic leading-relaxed" style={{ color: '#F6EADC' }}>
-                    "{depoimentos[dep].texto}"
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-body font-semibold" style={{ color: '#D4B883' }}>
-                        {depoimentos[dep].nome}
-                      </p>
-                      <p className="font-body text-xs" style={{ color: '#DCE7DE', opacity: 0.7 }}>
-                        Paciente · {depoimentos[dep].destaque}
-                      </p>
-                    </div>
-
-                    {/* Nav arrows */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setDep((d) => (d - 1 + depoimentos.length) % depoimentos.length)}
-                        className="flex items-center justify-center w-9 h-9 rounded-full border transition-colors hover:bg-dourado-champagne/20"
-                        style={{ borderColor: 'rgba(180,153,100,0.4)', color: '#B49964' }}
-                        aria-label="Depoimento anterior"
-                      >
-                        <ChevronLeft size={18} />
-                      </button>
-                      <button
-                        onClick={() => setDep((d) => (d + 1) % depoimentos.length)}
-                        className="flex items-center justify-center w-9 h-9 rounded-full border transition-colors hover:bg-dourado-champagne/20"
-                        style={{ borderColor: 'rgba(180,153,100,0.4)', color: '#B49964' }}
-                        aria-label="Próximo depoimento"
-                      >
-                        <ChevronRight size={18} />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Dots */}
-                <div className="flex justify-center gap-2 mt-4">
-                  {depoimentos.map((_, i) => (
-                    <button
+              <ul className="flex flex-col gap-6">
+                {principios.map((p, i) => {
+                  const Icon = p.icon;
+                  return (
+                    <motion.li
                       key={i}
-                      onClick={() => setDep(i)}
-                      className="w-2 h-2 rounded-full transition-all"
-                      style={{ backgroundColor: i === dep ? '#B49964' : 'rgba(180,153,100,0.3)' }}
-                      aria-label={`Depoimento ${i + 1}`}
-                    />
-                  ))}
-                </div>
-
-                <p className="text-center mt-2 font-body text-xs" style={{ color: 'rgba(220,231,222,0.4)' }}>
-                  Depoimentos espontâneos sobre vitalidade, energia e sono
-                </p>
-              </div>
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, x: 16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    >
+                      <span
+                        className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-xl"
+                        style={{ backgroundColor: 'rgba(180,153,100,0.16)', color: '#D4B883' }}
+                      >
+                        <Icon size={20} strokeWidth={1.6} />
+                      </span>
+                      <div>
+                        <p className="font-display font-medium text-lg" style={{ color: '#F6EADC', lineHeight: 1.3 }}>
+                          {p.title}
+                        </p>
+                        <p className="font-body text-sm leading-relaxed mt-0.5" style={{ color: '#DCE7DE', opacity: 0.82 }}>
+                          {p.desc}
+                        </p>
+                      </div>
+                    </motion.li>
+                  );
+                })}
+              </ul>
             </motion.div>
 
             {/* CTA */}
@@ -299,15 +207,15 @@ export function ProvaSocial() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full font-body font-semibold mt-4 transition-all"
+              className="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full font-body font-semibold transition-all"
               style={{ backgroundColor: '#B49964', color: '#0E3528' }}
-              whileHover={{ scale: 1.04, backgroundColor: '#D4B883' }}
+              whileHover={{ scale: 1.03, backgroundColor: '#D4B883' }}
               whileTap={{ scale: 0.97 }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              Quero iniciar o meu protocolo personalizado
+              Quero iniciar meu acompanhamento
             </motion.a>
           </div>
         </div>

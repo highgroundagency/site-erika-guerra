@@ -31,8 +31,8 @@ function App() {
         <Hero />
         <Identificacao />
         <ProvaSocial />
-        <SuperPromessa />
         <Metodo />
+        <SuperPromessa />
         <Programas />
         <Localizacao />
       </main>

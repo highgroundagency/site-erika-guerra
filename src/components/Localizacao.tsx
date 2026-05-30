@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Car, Shield, Star } from 'lucide-react';
+import { MapPin, Phone, Clock, Car, Shield, Star, ArrowUpRight } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { SectionLabel } from './SectionLabel';
 import { WHATSAPP_URL, ADDRESS, PHONE_DISPLAY } from '../config/contact';
 
 const vantagens = [
@@ -21,18 +22,7 @@ export function Localizacao() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
 
-        {/* Label */}
-        <motion.div
-          className="flex items-center gap-3 mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <span className="h-px flex-1 max-w-16" style={{ backgroundColor: '#B49964' }} />
-          <span className="font-body font-semibold text-xs uppercase tracking-widest" style={{ color: '#B49964' }}>
-            Onde encontrar
-          </span>
-        </motion.div>
+        <SectionLabel tone="light">Onde encontrar</SectionLabel>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -216,8 +206,9 @@ export function Localizacao() {
                 border: '1px solid rgba(180,153,100,0.2)',
               }}
             >
-              <p className="font-body font-semibold mb-2" style={{ color: '#B49964' }}>
-                📍 Medical Center · Shopping Recife · Sala 06
+              <p className="flex items-center gap-2 font-body font-semibold mb-2" style={{ color: '#B49964' }}>
+                <MapPin size={16} strokeWidth={1.8} />
+                Medical Center · Shopping Recife · Sala 06
               </p>
               <p className="font-body text-sm" style={{ color: '#DCE7DE' }}>
                 {ADDRESS.full}
@@ -226,10 +217,11 @@ export function Localizacao() {
                 href={`https://maps.google.com/?q=Shopping+Recife+Boa+Viagem+Recife+PE`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 mt-3 font-body text-xs font-semibold transition-colors hover:opacity-80"
+                className="group inline-flex items-center gap-1.5 mt-3 font-body text-xs font-semibold transition-colors hover:opacity-80"
                 style={{ color: '#D4B883' }}
               >
-                Abrir no Google Maps →
+                Abrir no Google Maps
+                <ArrowUpRight size={14} strokeWidth={1.8} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
           </motion.div>

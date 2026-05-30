@@ -20,8 +20,10 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: 'Manrope', system-ui, sans-serif;
+  color: #13251E;
   background: #F6EADC;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
@@ -38,27 +40,22 @@ p { margin: 0; }
   color: #0E3528;
 }
 
-#root {
-  min-height: 100vh;
-}
+#root { min-height: 100vh; }
 
-/* Scroll progress bar */
+/* Scroll progress bar (largura controlada via React) */
 #scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
   background: linear-gradient(90deg, #B49964, #D4B883, #B49964);
-  background-size: 200% 100%;
   z-index: 9999;
   width: 0%;
   transition: width 0.1s linear;
 }
 
-/* Grain texture overlay */
-.grain-overlay {
-  position: relative;
-}
+/* Textura de grão sutil sobre seções escuras */
+.grain-overlay { position: relative; }
 .grain-overlay::after {
   content: '';
   position: absolute;
@@ -68,64 +65,14 @@ p { margin: 0; }
   z-index: 1;
 }
 
-/* Heartbeat animation */
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  14% { transform: scale(1.2); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.1); }
-  56% { transform: scale(1); }
-}
-
-/* Gold shimmer */
-@keyframes shimmer-gold {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-/* Float */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(-3deg); }
-  50% { transform: translateY(-15px) rotate(3deg); }
-}
-
-/* ECG line */
-@keyframes ecg-line {
-  0% { stroke-dashoffset: 400; }
-  100% { stroke-dashoffset: 0; }
-}
-
-/* Draw path (logo symbol) */
-@keyframes draw {
-  from { stroke-dashoffset: 2000; }
-  to { stroke-dashoffset: 0; }
-}
-
-/* Pulse ring */
+/* Pulse ring — usado pelo botão flutuante do WhatsApp */
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(180,153,100,0.6); }
-  70% { box-shadow: 0 0 0 20px rgba(180,153,100,0); }
-  100% { box-shadow: 0 0 0 0 rgba(180,153,100,0); }
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
-.animate-heartbeat { animation: heartbeat 1.3s ease-in-out infinite; }
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
-.animate-draw {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: draw 2s ease forwards;
-}
-
-/* WhatsApp FAB */
-.whatsapp-fab {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-}
-
-/* Reduced motion */
+/* Respeita usuários que preferem menos movimento */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -133,4 +80,3 @@ p { margin: 0; }
     transition-duration: 0.01ms !important;
   }
 }
-

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Users } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { SectionLabel } from './SectionLabel';
 import { programas, programaWhatsAppUrl } from '../config/programas';
 import { WHATSAPP_URL } from '../config/contact';
 
@@ -19,22 +20,7 @@ export function Programas() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
 
-        {/* Section label */}
-        <motion.div
-          className="flex items-center gap-3 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="h-px flex-1 max-w-16" style={{ backgroundColor: '#B49964' }} />
-          <span
-            className="font-body font-semibold text-xs uppercase tracking-widest"
-            style={{ color: '#B49964' }}
-          >
-            Formas de cuidado
-          </span>
-        </motion.div>
+        <SectionLabel>Formas de cuidado</SectionLabel>
 
         {/* Headline */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-end">
@@ -69,80 +55,84 @@ export function Programas() {
 
         {/* ── Cards ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {programas.map((p, i) => (
-            <motion.a
-              key={p.id}
-              href={programaWhatsAppUrl(p)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col gap-5 p-8 md:p-10 rounded-3xl transition-all"
-              style={{
-                backgroundColor: '#F6EADC',
-                border: '1px solid rgba(23,84,66,0.1)',
-                boxShadow: '0 2px 16px rgba(19,37,30,0.04)',
-              }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{
-                y: -4,
-                boxShadow: '0 12px 40px rgba(19,37,30,0.1)',
-                backgroundColor: '#fff',
-              }}
-            >
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <span
-                    className="flex items-center justify-center w-12 h-12 rounded-2xl text-2xl"
-                    style={{
-                      backgroundColor: 'rgba(180,153,100,0.15)',
-                      border: '1px solid rgba(180,153,100,0.25)',
-                    }}
-                  >
-                    {p.icon}
-                  </span>
-                  <span
-                    className="font-body font-semibold text-xs uppercase tracking-widest"
-                    style={{ color: '#B49964' }}
-                  >
-                    {p.tagline}
-                  </span>
-                </div>
-                <ArrowRight
-                  size={20}
-                  className="transition-transform group-hover:translate-x-1"
-                  style={{ color: '#175442' }}
-                />
-              </div>
-
-              {/* Title + desc */}
-              <div>
-                <h3
-                  className="font-display font-medium mb-3"
-                  style={{ fontSize: 'clamp(1.3rem, 2.4vw, 1.6rem)', color: '#175442', lineHeight: 1.2 }}
-                >
-                  {p.title}
-                </h3>
-                <p
-                  className="font-body leading-relaxed"
-                  style={{ color: '#13251E', opacity: 0.8, fontSize: '0.98rem' }}
-                >
-                  {p.description}
-                </p>
-              </div>
-
-              {/* CTA inline */}
-              <div
-                className="inline-flex items-center gap-2 mt-2 font-body font-semibold text-sm"
-                style={{ color: '#175442' }}
+          {programas.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <motion.a
+                key={p.id}
+                href={programaWhatsAppUrl(p)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex flex-col gap-5 p-8 md:p-10 rounded-3xl transition-all"
+                style={{
+                  backgroundColor: '#F6EADC',
+                  border: '1px solid rgba(23,84,66,0.1)',
+                  boxShadow: '0 2px 16px rgba(19,37,30,0.04)',
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{
+                  y: -4,
+                  boxShadow: '0 12px 40px rgba(19,37,30,0.1)',
+                  backgroundColor: '#fff',
+                }}
               >
-                <WhatsAppIcon size={16} />
-                Falar sobre este programa
-              </div>
-            </motion.a>
-          ))}
+                {/* Header */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="flex items-center justify-center w-12 h-12 rounded-2xl"
+                      style={{
+                        backgroundColor: 'rgba(180,153,100,0.15)',
+                        border: '1px solid rgba(180,153,100,0.25)',
+                        color: '#175442',
+                      }}
+                    >
+                      <Icon size={24} strokeWidth={1.6} />
+                    </span>
+                    <span
+                      className="font-body font-semibold uppercase"
+                      style={{ color: '#B49964', fontSize: '0.7rem', letterSpacing: '0.2em' }}
+                    >
+                      {p.tagline}
+                    </span>
+                  </div>
+                  <ArrowRight
+                    size={20}
+                    className="transition-transform group-hover:translate-x-1"
+                    style={{ color: '#175442' }}
+                  />
+                </div>
+
+                {/* Title + desc */}
+                <div>
+                  <h3
+                    className="font-display font-medium mb-3"
+                    style={{ fontSize: 'clamp(1.3rem, 2.4vw, 1.6rem)', color: '#175442', lineHeight: 1.2 }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p
+                    className="font-body leading-relaxed"
+                    style={{ color: '#13251E', opacity: 0.8, fontSize: '0.98rem' }}
+                  >
+                    {p.description}
+                  </p>
+                </div>
+
+                {/* CTA inline */}
+                <div
+                  className="inline-flex items-center gap-2 mt-2 font-body font-semibold text-sm"
+                  style={{ color: '#175442' }}
+                >
+                  <WhatsAppIcon size={16} />
+                  Falar sobre este programa
+                </div>
+              </motion.a>
+            );
+          })}
         </div>
 
         {/* ── Equipe multidisciplinar ── */}
